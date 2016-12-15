@@ -1,32 +1,32 @@
-# opsdroid skill hello
+# opsdroid skill api.ai
 
-A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to respond to hello and goodbye messages.
+A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to passthrough messages from [api.ai](https://api.ai).
 
 ## Requirements
 
-None.
+To enable api.ai `parsers.apiai.access-token` must be set in your `configuration.yaml`.
+
+**Example**
+```yaml
+parsers:
+  apiai:
+    access-token: "my_apiai_access_key"
+```
 
 ## Configuration
 
-None.
+By default this skill will reply with all responses from api.ai. However you can whitelist or blacklist certain actions using the `include` and `exclude` options in the configuration.
 
-## Usage
+```yaml
+skills:
+  apiai:
+    include:
+      - smalltalk
+    exclude:
+      - smalltalk.agent
+```
 
-#### `hello`
-
-Says hello to the user.
-
-> user: hello
->
-> opsdroid: Hi user
-
-#### `goodbye`
-
-Says goodbye to the user.
-
-> user: bye
->
-> opsdroid: Bye user
+The above example configuration will only reply with messages from the smalltalk domain, but not the agent category.
 
 ## License
 
