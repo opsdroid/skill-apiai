@@ -1,4 +1,4 @@
-from opsdroid.skills import match_apiai_action
+from opsdroid.matchers import match_apiai_action
 
 @match_apiai_action('') # Matches all
 async def passthrough(opsdroid, config, message):
