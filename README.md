@@ -19,7 +19,7 @@ By default this skill will reply with all responses from api.ai. However you can
 
 ```yaml
 skills:
-  apiai:
+  - name: apiai:
     include:
       - smalltalk
     exclude:
