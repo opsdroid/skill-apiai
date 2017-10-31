@@ -27,7 +27,3 @@ skills:
 ```
 
 The above example configuration will only reply with messages from the smalltalk domain, but not the agent category.
-
-## License
-
-GNU General Public License Version 3 (GPLv3)
