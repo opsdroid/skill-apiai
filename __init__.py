@@ -4,6 +4,7 @@ from opsdroid.matchers import match_apiai_action
 async def passthrough(opsdroid, config, message):
     if "action" in message.apiai["result"]:
         action = message.apiai["result"]["action"]
+        response = None
 
         try:
             if "include" in config:
@@ -20,6 +21,11 @@ async def passthrough(opsdroid, config, message):
                     return
         except TypeError:
             pass
+        
+        if "speech" in message.apiai["result"]:
+            response = message.apiai["result"]["speech"]
+        elif "speech" in message.apiai["result"]["fulfillment"]:
+            response = message.apiai["result"]["fulfillment"]["speech"]
 
-        if message.apiai["result"]["speech"]:
-            await message.respond(message.apiai["result"]["speech"])
+        if response:
+            await message.respond(response)
