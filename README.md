@@ -1,25 +1,25 @@
-# opsdroid skill api.ai
+# opsdroid skill Dialogflow (previously Api.ai)
 
-A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to passthrough messages from [api.ai](https://api.ai).
+A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to passthrough messages from [Dialogflow](https://dialogflow.com/).
 
 ## Requirements
 
-To enable api.ai `parsers.apiai.access-token` must be set in your `configuration.yaml`.
+To enable dialogflow `parsers.dialogflow.access-token` must be set in your `configuration.yaml`.
 
 **Example**
 ```yaml
 parsers:
-  apiai:
+  dialogflow:
     access-token: "my_apiai_access_key"
 ```
 
 ## Configuration
 
-By default this skill will reply with all responses from api.ai. However you can whitelist or blacklist certain actions using the `include` and `exclude` options in the configuration.
+By default this skill will reply with all responses from Dialogflow. However you can whitelist or blacklist certain actions using the `include` and `exclude` options in the configuration.
 
 ```yaml
 skills:
-  - name: apiai
+  - name: dialogflow
     include:
       - smalltalk
     exclude:

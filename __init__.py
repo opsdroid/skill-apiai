@@ -1,9 +1,10 @@
-from opsdroid.matchers import match_apiai_action
+from opsdroid.matchers import match_dialogflow_action
 
-@match_apiai_action('') # Matches all
+
+@match_dialogflow_action('') # Matches all
 async def passthrough(opsdroid, config, message):
-    if "action" in message.apiai["result"]:
-        action = message.apiai["result"]["action"]
+    if "action" in message.dialogflow["result"]:
+        action = message.dialogflow["result"]["action"]
         response = None
 
         try:
@@ -22,10 +23,10 @@ async def passthrough(opsdroid, config, message):
         except TypeError:
             pass
         
-        if "speech" in message.apiai["result"]:
-            response = message.apiai["result"]["speech"]
-        elif "speech" in message.apiai["result"]["fulfillment"]:
-            response = message.apiai["result"]["fulfillment"]["speech"]
+        if "speech" in message.dialogflow["result"]:
+            response = message.dialogflow["result"]["speech"]
+        elif "speech" in message.dialogflow["result"]["fulfillment"]:
+            response = message.dialogflow["result"]["fulfillment"]["speech"]
 
         if response:
             await message.respond(response)
