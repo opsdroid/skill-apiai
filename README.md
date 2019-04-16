@@ -9,7 +9,7 @@ To enable dialogflow `parsers.dialogflow.access-token` must be set in your `conf
 **Example**
 ```yaml
 parsers:
-  dialogflow:
+  - name: dialogflow
     access-token: "my_apiai_access_key"
 ```
 
